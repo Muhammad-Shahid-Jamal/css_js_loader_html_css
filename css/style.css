@@ -1,0 +1,126 @@
+:root{
+    --bg_1:#2196f3;
+    --bg_2:#1e88e5;
+    --bg_3:#1976d2;
+    --bg_4:#1565c0;
+    --bg_5:#0d47a1;
+}
+._loading_state{
+    height: 100vh;
+    overflow: hidden;
+}
+._loading_state #loader_container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: grid;
+    align-items: center;
+    text-align: center;
+}
+._loading_state #loader_container #_loader div{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    margin: 0px 2px;
+    position: relative;
+    transform-origin: -4px 50%;
+    transition: all 1s ease-in-out;
+}
+#_b1{
+    transition: none;
+    background-color: var(--bg_1);
+    animation: _b1 2s ease-in-out infinite alternate;
+}
+#_b2{
+    background-color: var(--bg_2);
+}
+#_b2._bb{
+    background-color: var(--bg_1);
+    animation: backword_anim 1s ease-in-out forwards,_b2 .3s ease-in-out .8s forwards;
+}
+#_b2._bf{
+    background-color: var(--bg_2);
+    animation: forward_anim 1s ease-in-out forwards,_b3 .3s ease-in-out .8s forwards;
+}
+#_b3{
+    background-color: var(--bg_3);
+}
+#_b3._bb{
+    background-color: var(--bg_2);
+    animation: backword_anim 1s ease-in-out forwards,_b2 .3s ease-in-out .8s forwards;
+}
+#_b3._bf{
+    background-color: var(--bg_3);
+    animation: forward_anim 1s ease-in-out forwards,_b3 .3s ease-in-out .8s forwards;
+}
+#_b4{
+    background-color: var(--bg_4);
+}
+#_b4._bb{
+    background-color: var(--bg_3);
+    animation: backword_anim 1s ease-in-out forwards,_b2 .3s ease-in-out .8s forwards;
+}
+#_b4._bf{
+    background-color: var(--bg_4);
+    animation: forward_anim 1s ease-in-out forwards,_b3 .3s ease-in-out .8s forwards;
+}
+#_b5{
+    background-color: var(--bg_5);
+}
+#_b5._bb{
+    background-color: var(--bg_4);
+    animation: backword_anim 1s ease-in-out forwards,_b2 .3s ease-in-out .8s forwards;
+}
+#_b5._bf{
+    background-color: var(--bg_5);
+    animation: forward_anim 1s ease-in-out forwards,_b3 .3s ease-in-out .8s forwards;
+}
+@keyframes _b1{
+    0%{
+        left: 0px;
+    }
+    100%{
+        left: 92px;
+        background-color: var(--bg_5);
+    }
+}
+@keyframes _b2{
+    0%{
+        transform: rotate(-180deg) scaleX(1);
+    }
+    50%{
+        transform: rotate(-180deg) scaleX(1.3);
+        height: 10px;
+    }
+    100%{
+       transform: rotate(-180deg) scaleX(1);
+    }
+}
+@keyframes _b3{
+    0%{
+        transform: rotate(0deg) scaleX(1);
+    }
+    50%{
+        transform: rotate(0deg) scaleX(1.3);
+        height: 10px;
+    }
+    100%{
+       transform: rotate(0deg) scaleX(1);
+    }
+}
+@keyframes backword_anim{
+    0%{transform: rotate(0deg);}
+    100%{
+        transform: rotate(-180deg);
+    }
+}
+@keyframes forward_anim{
+    0%{transform: rotate(-180deg);}
+    100%{
+        transform: rotate(0deg);
+    }
+}
